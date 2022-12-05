@@ -17,3 +17,14 @@ Make sure environment is already setup
     npm install
 
 ```
+
+## Logs
+
+### • 4th Dec - 
+Basic structure built using added dependencies, user schema created, database connection made, Crud APIs built.
+
+### • 5th Dec - 
+BCrypt dependencies added to secure the password
+
+
+
