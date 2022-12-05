@@ -6,8 +6,9 @@ const { userRouter } = require("./routes/user.routes");
 const { crudRouter } = require("./routes/usercrud.routes");
 require("dotenv").config()
 
-// middlewares
 const app = express();
+
+// middlewares
 app.use(express.json());
 
 let database;

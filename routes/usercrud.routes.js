@@ -8,6 +8,7 @@ require("dotenv").config()
 //router
 const crudRouter = Router();
 
+//getting database connection
 let database;
 connection((err) => {
   if (!err) {
@@ -15,6 +16,10 @@ connection((err) => {
   }
 });
 
+/*
+  get all users from the databases
+  GET router starts 
+*/
 crudRouter.get("/allusers", async (req, res) => {
   try {
     const result = await database.collection("users").find().toArray();
@@ -26,7 +31,14 @@ crudRouter.get("/allusers", async (req, res) => {
     res.send(err);
   }
 });
+/*
+  GET router ends 
+*/
 
+/*
+  updating user with given id passed as params
+  PUT router starts 
+*/
 crudRouter.put("/update/:id", async (req, res) => {
   const id = req.params.id;
   try {
@@ -45,7 +57,14 @@ crudRouter.put("/update/:id", async (req, res) => {
     return res.send(`${err} document with id: ${req.params.id} not present`);
   }
 });
+/*
+  PUT router ends 
+*/
 
+/*
+  deleting user with given id passed as params
+  DELETE router starts 
+*/
 crudRouter.delete("/delete/:id", async (req, res) => {
   try {
     await database
@@ -57,6 +76,9 @@ crudRouter.delete("/delete/:id", async (req, res) => {
     res.send(`document with id: ${req.params.id} not present`);
   }
 });
+/*
+  DELETE router starts 
+*/
 
 
 module.exports = {
